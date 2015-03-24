@@ -6,32 +6,46 @@
 
     <groupId>com.truecallertask</groupId>
     <artifactId>truecallertask</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <dependencies>
+
         <dependency>
             <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-core</artifactId>
             <version>0.8.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-db</artifactId>
+            <version>0.8.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-jdbi</artifactId>
+            <version>0.8.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-hibernate</artifactId>
+            <version>0.8.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-migrations</artifactId>
+            <version>0.8.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.182</version>
+        </dependency>
+
     </dependencies>
-
-    <dependency>
-        <groupId>io.dropwizard</groupId>
-        <artifactId>dropwizard-db</artifactId>
-        <version>0.8.0</version>
-    </dependency>
-
-    <dependency>
-        <groupId>io.dropwizard</groupId>
-        <artifactId>dropwizard-jdbi</artifactId>
-        <version>0.8.0</version>
-    </dependency>
-
-    <dependency>
-        <groupId>io.dropwizard</groupId>
-        <artifactId>dropwizard-hibernate</artifactId>
-        <version>0.8.0</version>
-    </dependency>
 
 </project>
