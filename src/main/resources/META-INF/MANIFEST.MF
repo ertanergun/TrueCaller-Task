@@ -1,0 +1,173 @@
+Manifest-Version: 1.0
+Class-Path: h2-1.3.171.jar dropwizard-migrations-0.8.0.jar dropwizard-
+ db-0.8.0.jar dropwizard-core-0.8.0.jar dropwizard-util-0.8.0.jar jack
+ son-annotations-2.5.0.jar guava-18.0.jar jsr305-3.0.0.jar joda-time-2
+ .7.jar dropwizard-jackson-0.8.0.jar jackson-core-2.5.1.jar jackson-da
+ tabind-2.5.1.jar jackson-datatype-jdk7-2.5.1.jar jackson-datatype-gua
+ va-2.5.1.jar jackson-module-afterburner-2.5.1.jar jackson-datatype-jo
+ da-2.5.1.jar slf4j-api-1.7.10.jar logback-classic-1.1.2.jar logback-c
+ ore-1.1.2.jar dropwizard-validation-0.8.0.jar hibernate-validator-5.1
+ .3.Final.jar validation-api-1.1.0.Final.jar jboss-logging-3.1.3.GA.ja
+ r classmate-1.0.0.jar javax.el-3.0.0.jar dropwizard-configuration-0.8
+ .0.jar jackson-dataformat-yaml-2.5.1.jar snakeyaml-1.12.jar commons-l
+ ang3-3.3.2.jar dropwizard-logging-0.8.0.jar metrics-logback-3.1.0.jar
+  metrics-core-3.1.0.jar jul-to-slf4j-1.7.10.jar log4j-over-slf4j-1.7.
+ 10.jar jcl-over-slf4j-1.7.10.jar jetty-util-9.2.9.v20150224.jar dropw
+ izard-metrics-0.8.0.jar dropwizard-lifecycle-0.8.0.jar jetty-server-9
+ .2.9.v20150224.jar javax.servlet-api-3.1.0.jar jetty-http-9.2.9.v2015
+ 0224.jar jetty-io-9.2.9.v20150224.jar dropwizard-jersey-0.8.0.jar jer
+ sey-server-2.16.jar jersey-common-2.16.jar javax.ws.rs-api-2.0.1.jar 
+ javax.annotation-api-1.2.jar jersey-guava-2.16.jar hk2-api-2.4.0-b09.
+ jar hk2-utils-2.4.0-b09.jar aopalliance-repackaged-2.4.0-b09.jar java
+ x.inject-2.4.0-b09.jar hk2-locator-2.4.0-b09.jar javassist-3.18.1-GA.
+ jar osgi-resource-locator-1.0.1.jar jersey-client-2.16.jar jersey-med
+ ia-jaxb-2.16.jar jersey-metainf-services-2.16.jar metrics-jersey2-3.1
+ .0.jar metrics-annotation-3.1.0.jar jackson-jaxrs-json-provider-2.5.1
+ .jar jackson-jaxrs-base-2.5.1.jar jackson-module-jaxb-annotations-2.5
+ .1.jar jersey-container-servlet-2.16.jar jersey-container-servlet-cor
+ e-2.16.jar jetty-webapp-9.2.9.v20150224.jar jetty-xml-9.2.9.v20150224
+ .jar jetty-servlet-9.2.9.v20150224.jar jetty-security-9.2.9.v20150224
+ .jar jetty-continuation-9.2.9.v20150224.jar dropwizard-servlets-0.8.0
+ .jar dropwizard-jetty-0.8.0.jar metrics-jetty9-3.1.0.jar jetty-servle
+ ts-9.2.9.v20150224.jar metrics-jvm-3.1.0.jar metrics-servlets-3.1.0.j
+ ar metrics-healthchecks-3.1.0.jar metrics-json-3.1.0.jar argparse4j-0
+ .4.4.jar jetty-setuid-java-1.0.2.jar tomcat-jdbc-8.0.18.jar tomcat-ju
+ li-8.0.18.jar liquibase-core-3.3.2.jar liquibase-slf4j-1.2.1.jar drop
+ wizard-core-0.8.0.jar dropwizard-util-0.8.0.jar jackson-annotations-2
+ .5.0.jar guava-18.0.jar jsr305-3.0.0.jar joda-time-2.7.jar dropwizard
+ -jackson-0.8.0.jar jackson-core-2.5.1.jar jackson-databind-2.5.1.jar 
+ jackson-datatype-jdk7-2.5.1.jar jackson-datatype-guava-2.5.1.jar jack
+ son-module-afterburner-2.5.1.jar jackson-datatype-joda-2.5.1.jar slf4
+ j-api-1.7.10.jar logback-classic-1.1.2.jar logback-core-1.1.2.jar dro
+ pwizard-validation-0.8.0.jar hibernate-validator-5.1.3.Final.jar vali
+ dation-api-1.1.0.Final.jar jboss-logging-3.1.3.GA.jar classmate-1.0.0
+ .jar javax.el-3.0.0.jar dropwizard-configuration-0.8.0.jar jackson-da
+ taformat-yaml-2.5.1.jar snakeyaml-1.12.jar commons-lang3-3.3.2.jar dr
+ opwizard-logging-0.8.0.jar metrics-logback-3.1.0.jar metrics-core-3.1
+ .0.jar jul-to-slf4j-1.7.10.jar log4j-over-slf4j-1.7.10.jar jcl-over-s
+ lf4j-1.7.10.jar jetty-util-9.2.9.v20150224.jar dropwizard-metrics-0.8
+ .0.jar dropwizard-lifecycle-0.8.0.jar jetty-server-9.2.9.v20150224.ja
+ r javax.servlet-api-3.1.0.jar jetty-http-9.2.9.v20150224.jar jetty-io
+ -9.2.9.v20150224.jar dropwizard-jersey-0.8.0.jar jersey-server-2.16.j
+ ar jersey-common-2.16.jar javax.ws.rs-api-2.0.1.jar javax.annotation-
+ api-1.2.jar jersey-guava-2.16.jar hk2-api-2.4.0-b09.jar hk2-utils-2.4
+ .0-b09.jar aopalliance-repackaged-2.4.0-b09.jar javax.inject-2.4.0-b0
+ 9.jar hk2-locator-2.4.0-b09.jar javassist-3.18.1-GA.jar osgi-resource
+ -locator-1.0.1.jar jersey-client-2.16.jar jersey-media-jaxb-2.16.jar 
+ jersey-metainf-services-2.16.jar metrics-jersey2-3.1.0.jar metrics-an
+ notation-3.1.0.jar jackson-jaxrs-json-provider-2.5.1.jar jackson-jaxr
+ s-base-2.5.1.jar jackson-module-jaxb-annotations-2.5.1.jar jersey-con
+ tainer-servlet-2.16.jar jersey-container-servlet-core-2.16.jar jetty-
+ webapp-9.2.9.v20150224.jar jetty-xml-9.2.9.v20150224.jar jetty-servle
+ t-9.2.9.v20150224.jar jetty-security-9.2.9.v20150224.jar jetty-contin
+ uation-9.2.9.v20150224.jar dropwizard-servlets-0.8.0.jar dropwizard-j
+ etty-0.8.0.jar metrics-jetty9-3.1.0.jar jetty-servlets-9.2.9.v2015022
+ 4.jar metrics-jvm-3.1.0.jar metrics-servlets-3.1.0.jar metrics-health
+ checks-3.1.0.jar metrics-json-3.1.0.jar argparse4j-0.4.4.jar jetty-se
+ tuid-java-1.0.2.jar dropwizard-jdbi-0.8.0.jar dropwizard-db-0.8.0.jar
+  dropwizard-core-0.8.0.jar dropwizard-util-0.8.0.jar jackson-annotati
+ ons-2.5.0.jar guava-18.0.jar jsr305-3.0.0.jar joda-time-2.7.jar dropw
+ izard-jackson-0.8.0.jar jackson-core-2.5.1.jar jackson-databind-2.5.1
+ .jar jackson-datatype-jdk7-2.5.1.jar jackson-datatype-guava-2.5.1.jar
+  jackson-module-afterburner-2.5.1.jar jackson-datatype-joda-2.5.1.jar
+  slf4j-api-1.7.10.jar logback-classic-1.1.2.jar logback-core-1.1.2.ja
+ r dropwizard-validation-0.8.0.jar hibernate-validator-5.1.3.Final.jar
+  validation-api-1.1.0.Final.jar jboss-logging-3.1.3.GA.jar classmate-
+ 1.0.0.jar javax.el-3.0.0.jar dropwizard-configuration-0.8.0.jar jacks
+ on-dataformat-yaml-2.5.1.jar snakeyaml-1.12.jar commons-lang3-3.3.2.j
+ ar dropwizard-logging-0.8.0.jar metrics-logback-3.1.0.jar metrics-cor
+ e-3.1.0.jar jul-to-slf4j-1.7.10.jar log4j-over-slf4j-1.7.10.jar jcl-o
+ ver-slf4j-1.7.10.jar jetty-util-9.2.9.v20150224.jar dropwizard-metric
+ s-0.8.0.jar dropwizard-lifecycle-0.8.0.jar jetty-server-9.2.9.v201502
+ 24.jar javax.servlet-api-3.1.0.jar jetty-http-9.2.9.v20150224.jar jet
+ ty-io-9.2.9.v20150224.jar dropwizard-jersey-0.8.0.jar jersey-server-2
+ .16.jar jersey-common-2.16.jar javax.ws.rs-api-2.0.1.jar javax.annota
+ tion-api-1.2.jar jersey-guava-2.16.jar hk2-api-2.4.0-b09.jar hk2-util
+ s-2.4.0-b09.jar aopalliance-repackaged-2.4.0-b09.jar javax.inject-2.4
+ .0-b09.jar hk2-locator-2.4.0-b09.jar javassist-3.18.1-GA.jar osgi-res
+ ource-locator-1.0.1.jar jersey-client-2.16.jar jersey-media-jaxb-2.16
+ .jar jersey-metainf-services-2.16.jar metrics-jersey2-3.1.0.jar metri
+ cs-annotation-3.1.0.jar jackson-jaxrs-json-provider-2.5.1.jar jackson
+ -jaxrs-base-2.5.1.jar jackson-module-jaxb-annotations-2.5.1.jar jerse
+ y-container-servlet-2.16.jar jersey-container-servlet-core-2.16.jar j
+ etty-webapp-9.2.9.v20150224.jar jetty-xml-9.2.9.v20150224.jar jetty-s
+ ervlet-9.2.9.v20150224.jar jetty-security-9.2.9.v20150224.jar jetty-c
+ ontinuation-9.2.9.v20150224.jar dropwizard-servlets-0.8.0.jar dropwiz
+ ard-jetty-0.8.0.jar metrics-jetty9-3.1.0.jar jetty-servlets-9.2.9.v20
+ 150224.jar metrics-jvm-3.1.0.jar metrics-servlets-3.1.0.jar metrics-h
+ ealthchecks-3.1.0.jar metrics-json-3.1.0.jar argparse4j-0.4.4.jar jet
+ ty-setuid-java-1.0.2.jar tomcat-jdbc-8.0.18.jar tomcat-juli-8.0.18.ja
+ r jdbi-2.59.jar metrics-jdbi-3.1.0.jar dropwizard-db-0.8.0.jar dropwi
+ zard-core-0.8.0.jar dropwizard-util-0.8.0.jar jackson-annotations-2.5
+ .0.jar guava-18.0.jar jsr305-3.0.0.jar joda-time-2.7.jar dropwizard-j
+ ackson-0.8.0.jar jackson-core-2.5.1.jar jackson-databind-2.5.1.jar ja
+ ckson-datatype-jdk7-2.5.1.jar jackson-datatype-guava-2.5.1.jar jackso
+ n-module-afterburner-2.5.1.jar jackson-datatype-joda-2.5.1.jar slf4j-
+ api-1.7.10.jar logback-classic-1.1.2.jar logback-core-1.1.2.jar dropw
+ izard-validation-0.8.0.jar hibernate-validator-5.1.3.Final.jar valida
+ tion-api-1.1.0.Final.jar jboss-logging-3.1.3.GA.jar classmate-1.0.0.j
+ ar javax.el-3.0.0.jar dropwizard-configuration-0.8.0.jar jackson-data
+ format-yaml-2.5.1.jar snakeyaml-1.12.jar commons-lang3-3.3.2.jar drop
+ wizard-logging-0.8.0.jar metrics-logback-3.1.0.jar metrics-core-3.1.0
+ .jar jul-to-slf4j-1.7.10.jar log4j-over-slf4j-1.7.10.jar jcl-over-slf
+ 4j-1.7.10.jar jetty-util-9.2.9.v20150224.jar dropwizard-metrics-0.8.0
+ .jar dropwizard-lifecycle-0.8.0.jar jetty-server-9.2.9.v20150224.jar 
+ javax.servlet-api-3.1.0.jar jetty-http-9.2.9.v20150224.jar jetty-io-9
+ .2.9.v20150224.jar dropwizard-jersey-0.8.0.jar jersey-server-2.16.jar
+  jersey-common-2.16.jar javax.ws.rs-api-2.0.1.jar javax.annotation-ap
+ i-1.2.jar jersey-guava-2.16.jar hk2-api-2.4.0-b09.jar hk2-utils-2.4.0
+ -b09.jar aopalliance-repackaged-2.4.0-b09.jar javax.inject-2.4.0-b09.
+ jar hk2-locator-2.4.0-b09.jar javassist-3.18.1-GA.jar osgi-resource-l
+ ocator-1.0.1.jar jersey-client-2.16.jar jersey-media-jaxb-2.16.jar je
+ rsey-metainf-services-2.16.jar metrics-jersey2-3.1.0.jar metrics-anno
+ tation-3.1.0.jar jackson-jaxrs-json-provider-2.5.1.jar jackson-jaxrs-
+ base-2.5.1.jar jackson-module-jaxb-annotations-2.5.1.jar jersey-conta
+ iner-servlet-2.16.jar jersey-container-servlet-core-2.16.jar jetty-we
+ bapp-9.2.9.v20150224.jar jetty-xml-9.2.9.v20150224.jar jetty-servlet-
+ 9.2.9.v20150224.jar jetty-security-9.2.9.v20150224.jar jetty-continua
+ tion-9.2.9.v20150224.jar dropwizard-servlets-0.8.0.jar dropwizard-jet
+ ty-0.8.0.jar metrics-jetty9-3.1.0.jar jetty-servlets-9.2.9.v20150224.
+ jar metrics-jvm-3.1.0.jar metrics-servlets-3.1.0.jar metrics-healthch
+ ecks-3.1.0.jar metrics-json-3.1.0.jar argparse4j-0.4.4.jar jetty-setu
+ id-java-1.0.2.jar tomcat-jdbc-8.0.18.jar tomcat-juli-8.0.18.jar dropw
+ izard-hibernate-0.8.0.jar dropwizard-db-0.8.0.jar dropwizard-core-0.8
+ .0.jar dropwizard-util-0.8.0.jar jackson-annotations-2.5.0.jar guava-
+ 18.0.jar jsr305-3.0.0.jar joda-time-2.7.jar dropwizard-jackson-0.8.0.
+ jar jackson-core-2.5.1.jar jackson-databind-2.5.1.jar jackson-datatyp
+ e-jdk7-2.5.1.jar jackson-datatype-guava-2.5.1.jar jackson-module-afte
+ rburner-2.5.1.jar jackson-datatype-joda-2.5.1.jar slf4j-api-1.7.10.ja
+ r logback-classic-1.1.2.jar logback-core-1.1.2.jar dropwizard-validat
+ ion-0.8.0.jar hibernate-validator-5.1.3.Final.jar validation-api-1.1.
+ 0.Final.jar jboss-logging-3.1.3.GA.jar classmate-1.0.0.jar javax.el-3
+ .0.0.jar dropwizard-configuration-0.8.0.jar jackson-dataformat-yaml-2
+ .5.1.jar snakeyaml-1.12.jar commons-lang3-3.3.2.jar dropwizard-loggin
+ g-0.8.0.jar metrics-logback-3.1.0.jar metrics-core-3.1.0.jar jul-to-s
+ lf4j-1.7.10.jar log4j-over-slf4j-1.7.10.jar jcl-over-slf4j-1.7.10.jar
+  jetty-util-9.2.9.v20150224.jar dropwizard-metrics-0.8.0.jar dropwiza
+ rd-lifecycle-0.8.0.jar jetty-server-9.2.9.v20150224.jar javax.servlet
+ -api-3.0.1.jar jetty-http-9.2.9.v20150224.jar jetty-io-9.2.9.v2015022
+ 4.jar dropwizard-jersey-0.8.0.jar jersey-server-2.16.jar jersey-commo
+ n-2.16.jar javax.ws.rs-api-2.0.1.jar javax.annotation-api-1.2.jar jer
+ sey-guava-2.16.jar hk2-api-2.4.0-b09.jar hk2-utils-2.4.0-b09.jar aopa
+ lliance-repackaged-2.4.0-b09.jar javax.inject-2.4.0-b09.jar hk2-locat
+ or-2.4.0-b09.jar javassist-3.18.1-GA.jar osgi-resource-locator-1.0.1.
+ jar jersey-client-2.16.jar jersey-media-jaxb-2.16.jar jersey-metainf-
+ services-2.16.jar metrics-jersey2-3.1.0.jar metrics-annotation-3.1.0.
+ jar jackson-jaxrs-json-provider-2.5.1.jar jackson-jaxrs-base-2.5.1.ja
+ r jackson-module-jaxb-annotations-2.5.1.jar jersey-container-servlet-
+ 2.16.jar jersey-container-servlet-core-2.16.jar jetty-webapp-9.2.9.v2
+ 0150224.jar jetty-xml-9.2.9.v20150224.jar jetty-servlet-9.2.9.v201502
+ 24.jar jetty-security-9.2.9.v20150224.jar jetty-continuation-9.2.9.v2
+ 0150224.jar dropwizard-servlets-0.8.0.jar dropwizard-jetty-0.8.0.jar 
+ metrics-jetty9-3.1.0.jar jetty-servlets-9.2.9.v20150224.jar metrics-j
+ vm-3.1.0.jar metrics-servlets-3.1.0.jar metrics-healthchecks-3.1.0.ja
+ r metrics-json-3.1.0.jar argparse4j-0.4.4.jar jetty-setuid-java-1.0.2
+ .jar tomcat-jdbc-8.0.18.jar tomcat-juli-8.0.18.jar jackson-datatype-h
+ ibernate4-2.5.1.jar usertype.core-3.2.0.GA.jar usertype.spi-3.2.0.GA.
+ jar hibernate-core-4.3.5.Final.jar jboss-logging-annotations-1.2.0.Be
+ ta1.jar jboss-transaction-api_1.2_spec-1.0.0.Final.jar dom4j-1.6.1.ja
+ r xml-apis-1.0.b2.jar hibernate-commons-annotations-4.0.4.Final.jar h
+ ibernate-jpa-2.1-api-1.0.0.Final.jar antlr-2.7.7.jar jandex-1.1.0.Fin
+ al.jar sqlite-jdbc-3.8.7.jar
+Main-Class: com.truecallertask.TrueCallerApplication
+

@@ -1,0 +1,8 @@
+~/src/main/resources/truecaller.h2.db is precompiled and empty database for the project.
+Please copy truecaller.h2.db into {root} directory of the project before running the application
+
+==Update==
+1. run TrueCallerApplication with db migrate truecaller.yml command to create database schema
+2. run  TrueCallerApplication with server truecaller.yml command to start the application
+3. http://localhost:8090/view/viewer={viewerId}&viewing={viewedId} to register new view request
+4. http://localhost:8090/view/listviewerfor={viewedId} to read the view history for user with viewedId
