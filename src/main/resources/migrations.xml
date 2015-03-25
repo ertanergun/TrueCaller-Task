@@ -21,6 +21,20 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <createTable tableName="USERVIEWHISTORY">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="viewerId" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="viewedId" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="viewDate" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
         <createSequence sequenceName="hibernate_sequence" startValue="1" incrementBy="1" cycle="false"/>
     </changeSet>
 </databaseChangeLog>

@@ -4,22 +4,14 @@ import org.joda.time.DateTime;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "UserViews")
+@Table(name = "UserViewHistory")
 @NamedQueries({
         @NamedQuery(
-                name = "com.truecallertask.core.UserView.findAll",
-                query = "SELECT u FROM UserView u"
-        ),
-        @NamedQuery(
-                name = "com.truecallertask.core.UserView.getViewList",
-                query = "SELECT u FROM UserView u WHERE u.viewedId=:viewedId AND u.viewDate >=:dateLimit ORDER BY u.viewDate DESC"
-        ),
-        @NamedQuery(
-                name = "com.truecallertask.core.UserView.checkViewExists",
-                query = "SELECT u FROM UserView u WHERE u.viewerId=:viewerId AND u.viewedId=:viewedId AND u.viewDate=:viewDate "
+                name = "com.truecallertask.core.UserViewHistory.findAll",
+                query = "SELECT u FROM UserViewHistory u"
         )
 })
-public class UserView {
+public class UserViewHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -67,10 +59,10 @@ public class UserView {
         this.viewDate = viewDate;
     }
 
-    public UserView()
+    public UserViewHistory()
     {}
 
-    public UserView(Long viewerId, Long viewedId, DateTime viewDate)
+    public UserViewHistory(Long viewerId, Long viewedId, DateTime viewDate)
     {
         this.viewerId = viewerId;
         this.viewedId = viewedId;
