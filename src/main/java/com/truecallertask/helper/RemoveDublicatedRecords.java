@@ -5,43 +5,35 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.context.internal.ManagedSessionContext;
 
-import java.util.List;
 
-public class RepositoryHelper<E> {
+public class RemoveDublicatedRecords implements Runnable {
 
     private SessionFactory sessionFactory;
 
-    public RepositoryHelper(SessionFactory sessionFactory) {
+    public RemoveDublicatedRecords(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
 
     /***
-     * Inserts a list of <E> type object into the
-     * database with the same session
-     * @param list
+     * Removes dublicated records from database
      */
-    public void saveOrUpdateAll(List<E> list)
-    {
+    @Override
+    public void run() {
         Session session = sessionFactory.openSession();
-
-        try
-        {
+        try {
             ManagedSessionContext.bind(session);
             Transaction transaction = session.beginTransaction();
-            try
-            {
-                for (E entity : list) {
-                    session.saveOrUpdate(entity);
-                }
+            try {
+                String query = "DELETE FROM USERVIEWS WHERE ID NOT IN (SELECT MIN(ID) FROM USERVIEWS GROUP BY VIEWERID,VIEWEDID,VIEWDATE)";
+                session.createSQLQuery(query).executeUpdate();
                 transaction.commit();
             }
             catch (Exception e) {
                 transaction.rollback();
                 throw new RuntimeException(e);
             }
-        }
-        finally {
+        } finally {
             session.close();
             ManagedSessionContext.unbind(sessionFactory);
         }

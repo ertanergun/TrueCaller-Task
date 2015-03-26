@@ -15,7 +15,7 @@
 * To run the application, open any browser and use urls below.
 
 	To save a view action:
-        http://localhost:8090/view/viewer={viewerId}&viewing={viewedId} to register new view request
+        http://localhost:8090/view/viewer={viewerId}&viewing={viewedId}
 	
 	To list view history for user
-		http://localhost:8090/view/listviewerfor={viewedId} to read the view history for user with viewedId
+	http://localhost:8090/view/listviewerfor={viewedId}

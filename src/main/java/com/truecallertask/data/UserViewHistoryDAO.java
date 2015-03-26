@@ -1,6 +1,5 @@
 package com.truecallertask.data;
 
-import com.google.common.base.Optional;
 import com.truecallertask.core.UserViewHistory;
 import io.dropwizard.hibernate.AbstractDAO;
 import org.hibernate.SessionFactory;
@@ -12,12 +11,19 @@ public class UserViewHistoryDAO extends AbstractDAO<UserViewHistory> {
         super(sessionFactory);
     }
 
-    public Optional<UserViewHistory> findById(Long id) {
-        return Optional.fromNullable(get(id));
-    }
+    /***
+     * Saves a new userviewhistory or updates existing one
+     * @param userView
+     * @return
+     */
     public UserViewHistory saveOrUpdate(UserViewHistory userView) {
         return persist(userView);
     }
+
+    /***
+     * Returns all UserViews from history
+     * @return
+     */
     public List<UserViewHistory> findAll() {
         return list(namedQuery("com.truecallertask.core.UserViewHistory.findAll"));
     }

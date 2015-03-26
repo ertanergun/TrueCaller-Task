@@ -10,8 +10,10 @@ import org.hibernate.Transaction;
 import org.hibernate.context.internal.ManagedSessionContext;
 import org.joda.time.DateTime;
 
-/**
- * Created by goku on 25/03/15.
+
+/***
+ * Removes the old userviews from datebase and
+ * re-writes them into the History table
  */
 public class ArchiveOldViewHistory implements Runnable {
 
@@ -34,7 +36,7 @@ public class ArchiveOldViewHistory implements Runnable {
             ManagedSessionContext.bind(session);
             Transaction transaction = session.beginTransaction();
             try {
-                for (UserView userViewToArchive : userViewDAO.getUserViewsOlderThanDate(DateTime.now().minusDays(10))) {
+                for (UserView userViewToArchive : userViewDAO.getUserViewsOlderThanDate(DateTime.now())) {
                     userViewHistoryDAO.saveOrUpdate(new UserViewHistory(userViewToArchive.getViewerId(),userViewToArchive.getViewedId(),userViewToArchive.getViewDate()));
                     session.delete(userViewToArchive);
                 }

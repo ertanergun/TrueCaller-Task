@@ -21,6 +21,7 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+
         <createTable tableName="USERVIEWHISTORY">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -37,4 +38,15 @@
         </createTable>
         <createSequence sequenceName="hibernate_sequence" startValue="1" incrementBy="1" cycle="false"/>
     </changeSet>
+
+    <changeSet id="2" author="ertanergun">
+        <createIndex tableName="USERVIEWS" indexName="userview_index">
+            <column name="viewedId"></column>
+            <column name="viewDate"></column>
+        </createIndex>
+        <modifySql>
+            <replace replace="viewDate" with="viewDate DESC"/>
+        </modifySql>
+    </changeSet>
+
 </databaseChangeLog>

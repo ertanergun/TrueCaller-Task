@@ -12,11 +12,11 @@ import javax.persistence.*;
         ),
         @NamedQuery(
                 name = "com.truecallertask.core.UserView.getViewList",
-                query = "SELECT u FROM UserView u WHERE u.viewedId=:viewedId AND u.viewDate >=:dateLimit ORDER BY u.viewDate DESC"
+                query = "SELECT u FROM UserView u WHERE u.viewedId=:viewedId AND u.viewDate >=:dateLimit"
         ),
         @NamedQuery(
                 name = "com.truecallertask.core.UserView.checkViewExists",
-                query = "SELECT u FROM UserView u WHERE u.viewerId=:viewerId AND u.viewedId=:viewedId AND u.viewDate=:viewDate "
+                query = "SELECT u FROM UserView u WHERE u.viewerId=:viewerId AND u.viewedId=:viewedId AND u.viewDate=:viewDate"
         )
 })
 public class UserView {

@@ -1,6 +1,5 @@
 package com.truecallertask.data;
 
-import com.google.common.base.Optional;
 import com.truecallertask.core.UserView;
 import io.dropwizard.hibernate.AbstractDAO;
 import org.hibernate.Criteria;
@@ -15,15 +14,31 @@ public class UserViewDAO extends AbstractDAO<UserView> {
         super(sessionFactory);
     }
 
-    public Optional<UserView> findById(Long id) {
-        return Optional.fromNullable(get(id));
-    }
+
+    /***
+     * Saves a new userview or updates the existing one
+     * @param userView
+     * @return
+     */
     public UserView saveOrUpdate(UserView userView) {
         return persist(userView);
     }
+
+    /***
+     * Returns all userviews from database
+     * @return
+     */
     public List<UserView> findAll() {
         return list(namedQuery("com.truecallertask.core.UserView.findAll"));
     }
+
+    /***
+     * Returns list of userviews for given viewId
+     * andlimits the query result by remainingRecordSize
+     * @param viewId
+     * @param remainingRecordSize
+     * @return
+     */
     public List<UserView> getViewList(Long viewId, int remainingRecordSize){
         DateTime today = DateTime.now();
 
@@ -34,17 +49,30 @@ public class UserViewDAO extends AbstractDAO<UserView> {
                         .setMaxResults(remainingRecordSize));
     }
 
+    /**
+     * Returns userviews older than datetime parameter
+     * @param dateTime
+     * @return
+     */
+    public List<UserView> getUserViewsOlderThanDate(DateTime dateTime) {
+        Criteria criteria = criteria()
+                .add(Restrictions.le("viewDate", dateTime));
+        return list(criteria);
+    }
+
+    /***
+     * Possible way to validate record before inserting
+     * if returns null, the data does not exists
+     * @param viewerId
+     * @param viewedId
+     * @param dateTime
+     * @return
+     */
     public UserView checkUserView(Long viewerId, Long viewedId, DateTime dateTime)
     {
         return uniqueResult(namedQuery("com.truecallertask.core.UserView.checkViewExists")
                 .setParameter("viewerId", viewerId)
                 .setParameter("viewedId", viewedId)
                 .setParameter("viewDate", dateTime));
-    }
-
-    public List<UserView> getUserViewsOlderThanDate(DateTime dateTime) {
-        Criteria criteria = criteria()
-                .add(Restrictions.le("viewDate", dateTime));
-        return list(criteria);
     }
 }

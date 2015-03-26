@@ -5,6 +5,7 @@ import com.truecallertask.core.UserViewHistory;
 import com.truecallertask.data.UserViewDAO;
 import com.truecallertask.data.UserViewHistoryDAO;
 import com.truecallertask.helper.ArchiveOldViewHistory;
+import com.truecallertask.helper.RemoveDublicatedRecords;
 import com.truecallertask.resources.UserViewResource;
 import com.truecallertask.task.ArchiveOldViewHistoryTask;
 import io.dropwizard.Application;
@@ -22,14 +23,17 @@ import java.util.concurrent.TimeUnit;
 
 public class TrueCallerApplication extends Application<TrueCallerApplicationConfiguration> {
 
-    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(2);
 
     public static void main(String[] args) throws Exception {
         new TrueCallerApplication().run(args);
     }
 
+    /***
+     * Initialize hibernate configuration for given classes
+     */
     private final HibernateBundle<TrueCallerApplicationConfiguration> hibernateBundle =
-            new HibernateBundle<TrueCallerApplicationConfiguration>(UserView.class) {
+            new HibernateBundle<TrueCallerApplicationConfiguration>(UserView.class,UserViewHistory.class) {
                 @Override
                 public DataSourceFactory getDataSourceFactory(TrueCallerApplicationConfiguration configuration) {
                     return configuration.getDataSourceFactory();
@@ -66,9 +70,16 @@ public class TrueCallerApplication extends Application<TrueCallerApplicationConf
 
         final UserViewDAO userViewDAO =  new UserViewDAO(hibernateBundle.getSessionFactory());
         final UserViewHistoryDAO userViewHistoryDAO = new UserViewHistoryDAO(hibernateBundle.getSessionFactory());
+
+        /**
+         * Initialize batch tasks
+         */
         ArchiveOldViewHistoryTask archiveOldUserViewsTask = new ArchiveOldViewHistoryTask(userViewDAO, userViewHistoryDAO, hibernateBundle.getSessionFactory());
         Runnable archiveOldUserViewsSchedule = new ArchiveOldViewHistory(userViewDAO, userViewHistoryDAO, hibernateBundle.getSessionFactory());
-        scheduler.scheduleAtFixedRate(archiveOldUserViewsSchedule, 8, 8, TimeUnit.HOURS);
+        Runnable removeDublicatedRecords = new RemoveDublicatedRecords(hibernateBundle.getSessionFactory());
+        scheduler.scheduleAtFixedRate(archiveOldUserViewsSchedule, 0, 1, TimeUnit.DAYS);
+        scheduler.scheduleAtFixedRate(removeDublicatedRecords, 0, 1, TimeUnit.DAYS);
+
         environment.admin().addTask(archiveOldUserViewsTask);
         environment.jersey().register(new UserViewResource(userViewDAO,hibernateBundle.getSessionFactory()));
     }

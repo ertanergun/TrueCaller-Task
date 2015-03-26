@@ -6,16 +6,14 @@ import com.truecallertask.helper.RepositoryHelper;
 import io.dropwizard.hibernate.UnitOfWork;
 import org.hibernate.SessionFactory;
 import org.joda.time.DateTime;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+
 
 @Path("/view")
 public class UserViewResource {
@@ -23,14 +21,20 @@ public class UserViewResource {
     private final UserViewDAO userViewDAO;
     private RepositoryHelper<UserView> repositoryHelper;
     private List<UserView> userViewList;
+    private int userViewListLimit = 10;
 
     public UserViewResource(UserViewDAO userViewDAO, SessionFactory sessionFactory)
     {
         this.userViewDAO = userViewDAO;
         this.repositoryHelper = new RepositoryHelper<UserView>(sessionFactory);
-        this.userViewList = new ArrayList<UserView>();
     }
 
+    /***
+     * Records view action between two user with ids
+     * @param viewerId
+     * @param viewedId
+     * @return
+     */
     @GET
     @UnitOfWork
     @Path("/viewer={viewerId}&viewing={viewedId}")
@@ -42,17 +46,18 @@ public class UserViewResource {
         {
             DateTime today = DateTime.now();
             DateTime recordCreateDate = new DateTime(today.getYear(), today.getMonthOfYear(), today.getDayOfMonth(), today.getHourOfDay(), today.getMinuteOfHour(), 0, 0);
+
+            /***
+             * The received view action can be cached here in a list and
+             * inserted into database with large amount
+             *
+             * This arise missing record issue for listing last view actions
+             * before inserting the recorded list into the database
+             */
             UserView userView = new UserView(viewerId,viewedId, recordCreateDate);
+            userViewDAO.saveOrUpdate(userView);
 
-            if(!userViewList.contains(userView)) {
-                userViewList.add(userView);
-            }
-
-            if (userViewList.size() == 10) {
-                this.repositoryHelper.saveOrUpdateAll(userViewList);
-                userViewList.clear();
-            }
-            String message = String.format("User with Id: %d is viewing the User with id: %d on %s",viewerId,viewedId, recordCreateDate.toString("dd/MM/yyyy hh:mm"));
+            String message = String.format("User with Id: %d is viewing the User with id: %d on %s",viewerId,viewedId, recordCreateDate.toString("dd/MM/yyyy hh:mm aa"));
             builder.append(message);
         }
         catch (Exception ex)
@@ -64,6 +69,11 @@ public class UserViewResource {
         return getResponse(builder);
     }
 
+    /***
+     * Returns a list of user view actions for given user id
+     * @param viewedId
+     * @return
+     */
     @GET
     @UnitOfWork
     @Path("/listviewerfor={viewedId}")
@@ -71,33 +81,29 @@ public class UserViewResource {
     public Response listUserViews(@PathParam("viewedId") long viewedId) {
 
         StringBuilder builder = new StringBuilder();
-        List<UserView> viewList  = new ArrayList<UserView>();
+
         try {
-            for(UserView userView : userViewList) {
-                if(userView.getViewedId() == viewedId) {
-                    viewList.add(userView);
-                }
-            }
+            /**
+             * If the user view actions are cached in a list
+             * the list can be searched here and collect the missing
+             * record from database to complete 10 items to display
+             */
 
-            Collections.sort(viewList, new Comparator<UserView>() {
-                @Override
-                public int compare(UserView t1, UserView t2) {
-                    return t1.getViewDate().compareTo(t2.getViewDate());
-                }
-            });
-
-            if(viewList.size() != 10)
-            {
-                viewList.addAll(this.userViewDAO.getViewList(viewedId, 10 - viewList.size()));
-            }
+            List<UserView> viewList = this.userViewDAO.getViewList(viewedId, userViewListLimit);
 
             if(viewList.size() == 0)
             {
                 builder.append("No records to display");
             }
+            else
+            {
+                String header = String.format("The visit history for user with id %d: %n",viewedId);
+                builder.append(header);
+            }
+
 
             for (int i = 0; i < viewList.size(); i++) {
-                String row = String.format("User with Id: %d was viewed the User with id: %d on %s %n",viewList.get(i).getViewerId(),viewList.get(i).getViewedId(), viewList.get(i).getViewDate().toString("dd/MM/yyyy hh:mm"));
+                String row = String.format("User with Id: %d on %s %n",viewList.get(i).getViewerId(), viewList.get(i).getViewDate().toString("dd/MM/yyyy hh:mm aa"));
                 builder.append(row);
             }
         }
